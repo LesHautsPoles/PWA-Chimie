@@ -1,24 +1,49 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  text-align: center;
-  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ffffff; /* Couleur du texte pour le contraste */
+  overflow: hidden;
+  position: relative;
 }
 
+/* Conteneur principal */
 #term-container {
-  background: white;
-  padding: 20px;
-  border: 2px solid #ddd;
-  width: 300px;
-  margin: auto;
+  z-index: 10; /* Place le contenu au-dessus de l'animation de fond */
 }
 
-input, button {
-  padding: 10px;
-  margin-top: 10px;
+/* Arrière-plan avec dégradé sombre et animation de vagues */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at 50% 50%, #34495e, #2c3e50, #1c2833); /* Dégradé de vagues */
+  animation: animateWaves 20s linear infinite; /* Animation des vagues */
+  z-index: -2;
 }
 
-#result {
-  margin-top: 20px;
-  font-weight: bold;
+/* Deuxième couche pour superposer des vagues avec un décalage */
+body::after {
+  animation-duration: 30s; /* Vitesse différente pour les vagues */
+  opacity: 0.7; /* Ajuste l'opacité pour donner plus de profondeur */
+}
+
+/* Animation keyframes pour simuler le mouvement de vagues */
+@keyframes animateWaves {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(50px) translateY(-50px) scale(1.1);
+  }
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
 }

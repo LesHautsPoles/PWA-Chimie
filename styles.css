@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#term-container {
+  background: white;
+  padding: 20px;
+  border: 2px solid #ddd;
+  width: 300px;
+  margin: auto;
+}
+
+input, button {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}

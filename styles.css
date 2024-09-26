@@ -1,47 +1,115 @@
+/* Style de base pour le corps */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto Slab', serif; /* Police plus élégante */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #ffffff; /* Couleur du texte pour le contraste */
+  color: #ffffff; /* Couleur du texte pour un bon contraste */
   overflow: hidden;
+  background: linear-gradient(135deg, #434343 25%, #000000 75%); /* Dégradé métallique sombre */
   position: relative;
 }
 
-/* Conteneur principal */
+/* Conteneur pour les termes */
 #term-container {
-  z-index: 10; /* Place le contenu au-dessus de l'animation de fond */
+  z-index: 10;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent pour faire ressortir le contenu */
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
 }
 
-/* Arrière-plan avec dégradé sombre et animation de vagues */
+/* Style du texte principal */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Légère ombre portée pour le texte */
+}
+
+/* Style du terme en français */
+#french-term {
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ajout d'un effet lumineux au texte */
+  margin-bottom: 20px;
+}
+
+/* Style de la boîte de saisie */
+#user-input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #888;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1.2rem;
+  background: linear-gradient(145deg, #e0e0e0, #c6c6c6); /* Effet métallique sur la boîte */
+  color: #333;
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Effet de surbrillance au focus */
+#user-input:focus {
+  border-color: #ffa500; /* Couleur dorée pour le focus */
+  box-shadow: 0px 0px 10px #ffa500; /* Effet lumineux autour de la boîte */
+}
+
+/* Style du bouton */
+#check-answer {
+  padding: 12px 20px;
+  background: linear-gradient(145deg, #434343, #2c2c2c); /* Dégradé métallique sombre */
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px #000000, -2px -2px 6px #666666; /* Effet 3D pour le bouton */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Effet d'animation et de surbrillance au survol */
+#check-answer:hover {
+  background: linear-gradient(145deg, #5a5a5a, #3d3d3d); /* Couleur plus claire au survol */
+  box-shadow: 4px 4px 8px #000000, -4px -4px 8px #666666;
+}
+
+/* Style du texte de résultat */
+#result {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+/* Arrière-plan animé avec dégradé métallique en forme de vagues */
 body::before,
 body::after {
   content: "";
   position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle at 50% 50%, #34495e, #2c3e50, #1c2833); /* Dégradé de vagues */
-  animation: animateWaves 20s linear infinite; /* Animation des vagues */
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle at 50% 50%, #434343, #2c2c2c, #1b1b1b); /* Couleurs sombres et métalliques */
+  animation: animateWaves 30s linear infinite; /* Animation plus lente */
   z-index: -2;
 }
 
-/* Deuxième couche pour superposer des vagues avec un décalage */
 body::after {
-  animation-duration: 30s; /* Vitesse différente pour les vagues */
-  opacity: 0.7; /* Ajuste l'opacité pour donner plus de profondeur */
+  animation-duration: 60s; /* Vitesse différente pour plus de profondeur */
+  opacity: 0.5; /* Opacité pour donner de la dimension */
 }
 
-/* Animation keyframes pour simuler le mouvement de vagues */
+/* Animation des vagues */
 @keyframes animateWaves {
   0% {
     transform: translateX(0) translateY(0) scale(1);
   }
   50% {
-    transform: translateX(50px) translateY(-50px) scale(1.1);
+    transform: translateX(100px) translateY(-100px) scale(1.2);
   }
   100% {
     transform: translateX(0) translateY(0) scale(1);
